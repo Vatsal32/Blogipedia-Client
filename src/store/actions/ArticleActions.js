@@ -2,7 +2,7 @@ import * as actionTypes from './actionTypes';
 
 export const getAllArticles = () => {
     return dispatch => {
-        fetch('https://blogipedia.herokuapp.com/api/articles').then(res => res.json()).then(res => {
+        fetch('https://blogipedia.herokuapp.com/api/articles', {mode: "cors"}).then(res => res.json()).then(res => {
             localStorage.setItem('AllArticles', JSON.stringify(res.articles));
             dispatch({type: actionTypes.GOT_ALL_ARTICLES, articles: res.articles});
         });
